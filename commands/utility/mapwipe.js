@@ -31,8 +31,6 @@ module.exports = {
             )
             .setImage(`${thumb}`)
             .setTimestamp()
-        //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/dlecsVP.png' });
-        //await wait(4_000);
         await interaction.reply({ embeds: [exampleEmbed] })
     },
 };

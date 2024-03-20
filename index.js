@@ -6,7 +6,7 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
 client.commands = new Collection();
 
-// ****BE SURE TO DEPLOY COMMANDS AFTER CHANGING THEM*****
+// ****BE SURE TO DEPLOY EITHER LOCAL (DEV DEN) OR GLOBAL (ALL SERVERS) COMMANDS AFTER CHANGING THEM*****
 
 // Sets _dirname to look for a directory called "com"
 const foldersPath = path.join(__dirname, 'commands');
@@ -33,6 +33,7 @@ const eventFiles = fs.readdirSync(eventsPath).filter(file => file.endsWith('.js'
 for (const file of eventFiles) {
     const filePath = path.join(eventsPath, file);
     const event = require(filePath);
+
     if (event.once) {
         client.once(event.name, (...args) => event.execute(...args));
     } else {
@@ -62,4 +63,4 @@ client.on(Events.InteractionCreate, async interaction => {
     }
 });
 
-client.login(token);
+(client.login(token))

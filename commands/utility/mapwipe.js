@@ -15,7 +15,6 @@ module.exports = {
                 .setDescription('Map Thumbnail PNG')),
 
     async execute(interaction) {
-        //await interaction.deferReply();
 
         const truly = interaction.options.getString('map')
         const thumb = interaction.options.getString('map_thumbnail')
